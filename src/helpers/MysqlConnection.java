@@ -15,21 +15,28 @@ import java.sql.SQLException;
  */
 public class MysqlConnection {
     
-    String HOSTNAME = System.getProperty("db.host");
-    String PORT = System.getProperty("db.port");
-    String DATABASE = System.getProperty("db.database");
-    String user, password;
+    private String HOSTNAME = "127.0.0.1";
+    private String PORT = "3306";
+    private String DATABASE = "proteckt";
+    private String user, password;
     
-    String baseUrl = "jdbc:mysql://" + HOSTNAME + ":" + Integer.valueOf(PORT) + "/" + DATABASE;
+    private String baseUrl = "jdbc:mysql://" + HOSTNAME + ":" + Integer.valueOf(PORT) + "/" + DATABASE;
 
-    public Connection rawConnection;
+    private Connection rawConnection;
+    
+    public MysqlConnection(String usr, String pwd){
+        this.user = usr;
+        this.password = pwd;
+    }
 
-    public MysqlConnection(String user_name, String password) throws ClassNotFoundException, SQLException{
+    public Connection conectar() throws ClassNotFoundException, SQLException{
         
         //class for the driver
         Class.forName("com.mysql.jdbc.Driver");
         
-        rawConnection = DriverManager.getConnection(baseUrl,user_name,password);
+        //Realiza la conexion y retorna el objeto
+        rawConnection = DriverManager.getConnection(baseUrl,this.user,this.password);
+        return rawConnection;
         
     }    
     

@@ -12,21 +12,39 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import helpers.Encriptador;
+import helpers.SourceJForm;
+import java.io.FileOutputStream;
+import java.util.Arrays;
 /**
  *
- * @author shikami
+ * @author KoerHunt
  */
 public class Login extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Login
      */
-    public Login() {
+    
+    //Declaracion
+    Encriptador crypt;
+    
+    //Escritor
+    FileOutputStream propFileOutUsr;
+    FileOutputStream propFileOutPwd;
+    
+    //Archivo de credenciales
+    private final String USER_DATA = "src/config/user_data.db";
+    private final String PWD = "src/config/pass.db";
+    
+    public Login() throws Exception {
         initComponents();
         
-        //Center form
-        this.setLocationRelativeTo(null);
+        //Centrar formulario
+        setLocationRelativeTo(null);
+        
+        //inicializar encriptador
+        crypt = new Encriptador();
     }
 
     /**
@@ -119,8 +137,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MousePressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        
+       
         //validate user and password presence
         if(tf_user.getText().equals("")){
             JOptionPane.showMessageDialog(
@@ -135,20 +152,36 @@ public class Login extends javax.swing.JFrame {
         try {
             
             //Establish connection to the db
-            Connection cn = new MysqlConnection(tf_user.getText(),tf_pass.getText()).rawConnection;
+            Connection cn = new MysqlConnection(tf_user.getText(),tf_pass.getText()).conectar();
             
-            //Save to the enverioment the user and credentials
-            Properties p = new Properties(System.getProperties());
-            p.setProperty("db.user",tf_user.getText());
-            p.setProperty("db.password",tf_pass.getText());
+            //Save the credentials
+            byte[] pwfcifrada = crypt.cifra(tf_pass.getText());
             
-            //Go to the next Form
-            JOptionPane.showMessageDialog(
-               this, 
-               "Datos Correctos, accediento al sistema...", 
-               "Acceso", 
-               JOptionPane.INFORMATION_MESSAGE
-            );
+            //En este punto la conexion y los datos son correctos
+            String out = "db.user="+tf_user.getText()+"\n";
+            
+            //save user
+            propFileOutUsr = new FileOutputStream(USER_DATA);
+            propFileOutUsr.write(out.getBytes("UTF-8"));
+            propFileOutUsr.close();
+            
+            //save password
+            propFileOutPwd = new FileOutputStream(PWD);
+            propFileOutPwd.write(pwfcifrada);
+            propFileOutPwd.close();
+            
+            
+             /* Create and display the form */
+                java.awt.EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                        try {
+                            new JefeDeSeguridadForm().setVisible(true);
+                            dispose();
+                        } catch (Exception ex) {
+                            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
 
             
             
@@ -169,6 +202,8 @@ public class Login extends javax.swing.JFrame {
                 );
             }
             
+        } catch (Exception ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

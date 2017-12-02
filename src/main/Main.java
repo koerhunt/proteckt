@@ -5,43 +5,27 @@
  */
 package main;
 
-import config.Initialize;
 import interfaces.Login;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author shikami
+ * @author Koerhunt
  */
 public class Main {
     
     public static void main(String args[]){
-        
-        try {
-            
-            //init enverioment
-            Initialize init = new config.Initialize();
-            
-            
-            //launch login form
-            java.awt.EventQueue.invokeLater(() -> {
+        //launch login form
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
                 new Login().setVisible(true);
-            });
-            
-            
-        } catch (IOException ex) {
-            
-            JOptionPane.showMessageDialog(
-                    null, 
-                    "No se ha podido cargar el archivo de configuracion", 
-                    "Ha ocurrido un error", 
-                    JOptionPane.ERROR_MESSAGE
-            );
-            
-            System.exit(0);
-        }
-        
+            } catch (Exception ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
         
     }
     
