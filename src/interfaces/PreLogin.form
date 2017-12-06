@@ -68,10 +68,13 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Jefe De Seguridad"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Bienvenido Al Sistema Protectk &apos; Pantalla de Acceso"/>
+        <Property name="text" type="java.lang.String" value="Bienvenido Al Sistema Protectk  Pantalla de Acceso"/>
       </Properties>
     </Component>
   </SubComponents>

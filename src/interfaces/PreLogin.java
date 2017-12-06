@@ -5,6 +5,9 @@
  */
 package interfaces;
 
+import helpers.Encriptador;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -13,6 +16,13 @@ import java.util.logging.Logger;
  * @author shikami
  */
 public class PreLogin extends javax.swing.JFrame {
+    
+    
+    
+    //Archivo de credenciales
+    private final String USER_DATA = "src/config/user_data.db";
+    private final String PWD = "src/config/pass.db";
+    
 
     /**
      * Creates new form PreLogin
@@ -44,8 +54,13 @@ public class PreLogin extends javax.swing.JFrame {
         });
 
         jButton2.setText("Jefe De Seguridad");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("Bienvenido Al Sistema Protectk ' Pantalla de Acceso");
+        jLabel1.setText("Bienvenido Al Sistema Protectk  Pantalla de Acceso");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,40 +108,45 @@ public class PreLogin extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+            
+            //save user
+            Encriptador crypt = new Encriptador();
+            
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+            //usuario
+            FileOutputStream propFileOutUsr = new FileOutputStream(USER_DATA);
+            propFileOutUsr.write("db.user=login".getBytes("UTF-8"));
+            propFileOutUsr.close();
+            
+            //password
+            byte[] pwfcifrada = crypt.cifra("jefepassword");
+            FileOutputStream propFileOutPwd = new FileOutputStream(PWD);
+            propFileOutPwd.write(pwfcifrada);
+            propFileOutPwd.close();
+            
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(PreLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(PreLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    new LoginJefe().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(PreLogin.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PreLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PreLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PreLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PreLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PreLogin().setVisible(true);
-            }
         });
-    }
+        
+        dispose();
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

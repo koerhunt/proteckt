@@ -175,7 +175,7 @@ public class Login extends javax.swing.JFrame {
                 java.awt.EventQueue.invokeLater(new Runnable() {
                     public void run() {
                         try {
-                            new JefeDeSeguridadForm().setVisible(true);
+                            new BienvenidaAdministracion().setVisible(true);
                             dispose();
                         } catch (Exception ex) {
                             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);

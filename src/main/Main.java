@@ -6,6 +6,7 @@
 package main;
 
 import interfaces.Login;
+import interfaces.PreLogin;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +22,7 @@ public class Main {
         //launch login form
         java.awt.EventQueue.invokeLater(() -> {
             try {
-                new Login().setVisible(true);
+                new PreLogin().setVisible(true);
             } catch (Exception ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
