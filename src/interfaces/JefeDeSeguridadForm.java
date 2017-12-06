@@ -5,7 +5,6 @@
  */
 package interfaces;
 
-import com.mysql.jdbc.StringUtils;
 import helpers.SourceJForm;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
