@@ -76,6 +76,7 @@ public class Fraccionamientos extends SourceJForm{
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -158,6 +159,14 @@ public class Fraccionamientos extends SourceJForm{
             }
         });
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/32/001-office-material.png"))); // NOI18N
+        jButton1.setText("Registros");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         jMenu2.setText("Opciones");
 
         jMenuItem5.setText("Pantalla Principal");
@@ -216,7 +225,8 @@ public class Fraccionamientos extends SourceJForm{
                                     .addComponent(eliminar)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(btn_guardar, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                                    .addGap(111, 111, 111))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel7)
@@ -241,7 +251,7 @@ public class Fraccionamientos extends SourceJForm{
                                             .addComponent(tx_ciudad)
                                             .addComponent(tx_estado)
                                             .addComponent(combo_seguridad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,8 +304,9 @@ public class Fraccionamientos extends SourceJForm{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(eliminar)
-                    .addComponent(btn_guardar))
-                .addGap(103, 103, 103))
+                    .addComponent(btn_guardar)
+                    .addComponent(jButton1))
+                .addGap(31, 31, 31))
         );
 
         pack();
@@ -493,6 +504,19 @@ public class Fraccionamientos extends SourceJForm{
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    new FraccionamientosView().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+    }//GEN-LAST:event_jButton1ActionPerformed
+
      public void limpiarFormulario(){  
         codigo_identificador.setText("");
         tx_nombre.setText("");
@@ -509,6 +533,7 @@ public class Fraccionamientos extends SourceJForm{
     private javax.swing.JTextField codigo_identificador;
     private javax.swing.JComboBox<String> combo_seguridad;
     private javax.swing.JButton eliminar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
