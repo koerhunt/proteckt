@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="11a737ce-1fb8-4562-a009-9abc4d8e03a0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from reporte_fraccionamientos;]]>
+	</queryString>
+	<field name="nombre_fraccionamientos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_miembro" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellidos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="presidente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="631" height="63" uuid="30bf89d6-9ed9-4b1c-9aaa-52b047fb2e6f"/>
+				<textElement>
+					<font size="40"/>
+				</textElement>
+				<text><![CDATA[Reporte de Fraccionamientos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="121" height="20" uuid="601d6b3b-bd23-4a69-bbb0-fafc52636c6b"/>
+				<text><![CDATA[Nombre Fraccioaamiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="121" y="0" width="111" height="20" uuid="58eb1f85-10ab-4ab6-868e-477e87cf0398"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="0" width="111" height="20" uuid="d23c7caa-e36f-4122-9d1a-5c0e38e886da"/>
+				<text><![CDATA[Nombre Miembro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="0" width="111" height="20" uuid="0e5aca53-af77-4d39-8539-20d5642687fd"/>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="454" y="0" width="101" height="20" uuid="19d363f0-39ac-46ad-9125-928ffd0b21b7"/>
+				<text><![CDATA[Presidente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="121" height="20" uuid="b6b3e8cf-e7e5-4d90-a4c9-c9287c148c01"/>
+				<textFieldExpression><![CDATA[$F{nombre_fraccionamientos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="121" y="0" width="111" height="20" uuid="179458ea-5d47-4130-b642-112d9cbefcf8"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="0" width="111" height="20" uuid="4d6f29be-4ecf-4622-9539-3ca04754d8de"/>
+				<textFieldExpression><![CDATA[$F{nombre_miembro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="343" y="0" width="111" height="20" uuid="7ba0b7b3-f91d-474f-a41a-6577c0e4c5c9"/>
+				<textFieldExpression><![CDATA[$F{apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="454" y="0" width="101" height="20" uuid="8c32220d-84f1-48f2-ac5d-6f65465a1cd3"/>
+				<textFieldExpression><![CDATA[$F{presidente}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

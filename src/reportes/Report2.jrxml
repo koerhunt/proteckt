@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="085feb13-9697-4656-a5f0-2f31a5c41cc8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from propiedades_viviendas;]]>
+	</queryString>
+	<field name="id_propiedad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numero_portal" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="planta" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="letra" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="porcentaje_participacion" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="propietario_recide" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fraccionamiento_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="propietario_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigo_identificador" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ubicacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="localidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ciudad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jefe_de_seguridad_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="propiedad_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numero_habitaciones" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="-17" y="0" width="636" height="58" uuid="2c065bc8-b752-4898-b7c9-5c7abf9b58c5"/>
+				<textElement>
+					<font size="40"/>
+				</textElement>
+				<text><![CDATA[Reporte Detalle Vivienda]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="23" height="20" uuid="7f154c04-c35a-444f-88a7-b9b667ca4f28"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="0" width="42" height="20" uuid="fa8cc264-96ed-4ecf-b093-c13d5d1bbbb7"/>
+				<text><![CDATA[planta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="0" width="22" height="20" uuid="a2620efd-f192-47f1-8a48-8a4bcb716527"/>
+				<text><![CDATA[letra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="87" y="0" width="52" height="20" uuid="544e860d-9f25-4175-baf9-53982a121a7c"/>
+				<text><![CDATA[tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="193" y="0" width="100" height="20" uuid="175c4a5f-2ddd-42e9-9c8f-7e6c5792f593"/>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="0" width="100" height="20" uuid="e2c85822-0c1e-4e3d-8974-420fe45e64c7"/>
+				<text><![CDATA[ubicacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="0" width="50" height="20" uuid="e2da62f6-b9fa-48db-9b3d-3db5cbfcf581"/>
+				<text><![CDATA[cp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="0" width="43" height="20" uuid="d8a5b3ab-2730-4ce2-924f-34553d6397bb"/>
+				<text><![CDATA[Fracc. ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="443" y="0" width="100" height="20" uuid="ef142723-eb28-47fc-a780-243ac11e50b0"/>
+				<text><![CDATA[localidad]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="23" height="20" uuid="8688b965-711f-40f5-ba30-921d0e0ac0ea"/>
+				<textFieldExpression><![CDATA[$F{id_propiedad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="0" width="42" height="20" uuid="5fd83ce0-d4bb-424b-a245-a10b3f694a22"/>
+				<textFieldExpression><![CDATA[$F{planta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="0" width="22" height="20" uuid="1bef176c-a083-4a11-aa9f-7e06915a75a5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{letra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="0" width="52" height="20" uuid="2d3e74d3-8988-4fed-99e8-f7e542999ac8"/>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="193" y="0" width="100" height="20" uuid="59d48332-f8cb-4d60-ba81-44353312ae38"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="293" y="0" width="100" height="20" uuid="381ed29f-f6b5-4bbe-9ec9-ec720230862d"/>
+				<textFieldExpression><![CDATA[$F{ubicacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="393" y="0" width="50" height="20" uuid="dd9d7a9e-c951-4a4e-b2b5-efd8a35e57eb"/>
+				<textFieldExpression><![CDATA[$F{cp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="139" y="0" width="43" height="20" uuid="88dc016e-02a2-4a4a-817c-ba1a3fa78e48"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{fraccionamiento_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="443" y="0" width="100" height="20" uuid="29f588c7-e23e-40c1-800b-73810cb1ceca"/>
+				<textFieldExpression><![CDATA[$F{localidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

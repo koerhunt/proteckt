@@ -37,7 +37,7 @@ public class SourceJForm extends javax.swing.JFrame {
     protected final Properties props;
     
     public SourceJForm() throws FileNotFoundException, IOException, ClassNotFoundException, Exception{
-        
+                
         //Encriptador
         cryp = new Encriptador();
         

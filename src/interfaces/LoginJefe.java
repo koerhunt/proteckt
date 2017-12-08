@@ -5,6 +5,7 @@
  */
 package interfaces;
 
+import interfaces.admin.JefeDeSeguridadForm;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import helpers.MysqlConnection;
