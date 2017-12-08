@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaces;
+package interfaces.admin;
 
 import helpers.SourceJForm;
+import interfaces.Login;
+import interfaces.PreLogin;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,6 +28,7 @@ public class Fraccionamientos extends SourceJForm{
     public Fraccionamientos() throws ClassNotFoundException, Exception {        
         super();
         initComponents();
+        this.setLocationRelativeTo(null);
         
         PreparedStatement st = rawConnection.prepareStatement("SELECT nombre FROM jefes_de_seguridad");
         ResultSet rs = st.executeQuery();
@@ -70,9 +73,19 @@ public class Fraccionamientos extends SourceJForm{
         salvar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
         btn_guardar = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Fraccionamientos");
 
         jLabel1.setText("Identificador:");
 
@@ -98,6 +111,7 @@ public class Fraccionamientos extends SourceJForm{
 
         jLabel9.setText("Jefes de seguridad:");
 
+        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/32/021-search.png"))); // NOI18N
         btn_buscar.setText("Buscar");
         btn_buscar.setEnabled(false);
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +120,8 @@ public class Fraccionamientos extends SourceJForm{
             }
         });
 
-        salvar.setText("Salvar");
+        salvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/32/003-rotate.png"))); // NOI18N
+        salvar.setText("Actualizar");
         salvar.setEnabled(false);
         salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +129,7 @@ public class Fraccionamientos extends SourceJForm{
             }
         });
 
+        eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/32/002-delete.png"))); // NOI18N
         eliminar.setText("Eliminar");
         eliminar.setEnabled(false);
         eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -122,65 +138,123 @@ public class Fraccionamientos extends SourceJForm{
             }
         });
 
-        btn_guardar.setText("Nuevo");
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/32/004-floppy-disk.png"))); // NOI18N
+        btn_guardar.setText("Guardar");
         btn_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_guardarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancelar");
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/64/002-neighborhood.png"))); // NOI18N
+
+        jLabel11.setText("Fraccionamientos");
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/32/001-back.png"))); // NOI18N
+        jButton2.setText("Regresar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jMenu2.setText("Opciones");
+
+        jMenuItem5.setText("Pantalla Principal");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem5);
+
+        jMenuItem6.setText("Salir");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem6);
+        jMenu2.add(jSeparator1);
+
+        jMenuBar2.add(jMenu2);
+
+        jMenu3.setText("Edicion");
+
+        jMenuItem1.setText("Limpiar Formulario");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem1);
+
+        jMenuBar2.add(jMenu3);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_buscar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(salvar)
-                        .addGap(18, 18, 18)
-                        .addComponent(eliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_guardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
+                        .addGap(172, 172, 172)
+                        .addComponent(jLabel11))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tx_nombre)
-                            .addComponent(tx_ubicacion, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                            .addComponent(tx_id)
-                            .addComponent(codigo_identificador)
-                            .addComponent(tx_cp)
-                            .addComponent(tx_local)
-                            .addComponent(tx_ciudad)
-                            .addComponent(tx_estado)
-                            .addComponent(combo_seguridad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(eliminar)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(btn_guardar, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                    .addGap(111, 111, 111))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel9)
+                                        .addComponent(jLabel8))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(tx_nombre)
+                                            .addComponent(tx_ubicacion, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                                            .addComponent(tx_id)
+                                            .addComponent(codigo_identificador)
+                                            .addComponent(tx_cp)
+                                            .addComponent(tx_local)
+                                            .addComponent(tx_ciudad)
+                                            .addComponent(tx_estado)
+                                            .addComponent(combo_seguridad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel11)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tx_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(codigo_identificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -212,14 +286,16 @@ public class Fraccionamientos extends SourceJForm{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(combo_seguridad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_guardar)
-                    .addComponent(jButton2)
                     .addComponent(btn_buscar)
                     .addComponent(salvar)
-                    .addComponent(eliminar))
-                .addContainerGap())
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(eliminar)
+                    .addComponent(btn_guardar))
+                .addGap(103, 103, 103))
         );
 
         pack();
@@ -295,7 +371,7 @@ public class Fraccionamientos extends SourceJForm{
             statement.setString(7,tx_estado.getText());
             
             //JEFES DE SEGURIDAD
-            //statement.setString(8,combo_seguridad.getItemAt(combo_seguridad.getSelectedIndex()));
+            statement.setString(8,obtenerId(combo_seguridad.getItemAt(combo_seguridad.getSelectedIndex())));
             
             statement.setString(9,tx_id.getText());
 
@@ -329,7 +405,7 @@ public class Fraccionamientos extends SourceJForm{
                 }
 
             } catch (SQLException ex) {
-                Logger.getLogger(JefeDeSeguridadForm.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Fraccionamientos.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
@@ -340,7 +416,8 @@ public class Fraccionamientos extends SourceJForm{
         
         try {
 
-            PreparedStatement statement = rawConnection.prepareStatement("INSERT INTO fraccionamientos values(?,?,?,?,?,?,?,?,?)");
+            PreparedStatement statement = rawConnection.prepareStatement(""
+                    + "INSERT INTO fraccionamientos values(?,?,?,?,?,?,?,?,?)");
             statement.setString(1,null);
             //CODIGO
             statement.setString(2,codigo_identificador.getText());
@@ -378,6 +455,44 @@ public class Fraccionamientos extends SourceJForm{
         btn_buscar.setEnabled(true);
     }//GEN-LAST:event_tx_idKeyPressed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    new PreLogin().setVisible(true);
+                    dispose();
+                } catch (Exception ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        limpiarFormulario();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    new BienvenidaAdministracion().setVisible(true);
+                    dispose();
+                } catch (Exception ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
      public void limpiarFormulario(){  
         codigo_identificador.setText("");
         tx_nombre.setText("");
@@ -396,6 +511,8 @@ public class Fraccionamientos extends SourceJForm{
     private javax.swing.JButton eliminar;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -404,6 +521,13 @@ public class Fraccionamientos extends SourceJForm{
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JButton salvar;
     private javax.swing.JTextField tx_ciudad;
     private javax.swing.JTextField tx_cp;
