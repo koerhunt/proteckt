@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaces;
+package interfaces.jefe_seguridad;
 
 import helpers.SourceJForm;
+import interfaces.Login;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -64,6 +65,7 @@ public class Cuentas_Gastos extends SourceJForm {
         jMenuItem8 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cuentas Gastos");
 
         jLabel2.setText("Fecha:");
 
@@ -82,10 +84,10 @@ public class Cuentas_Gastos extends SourceJForm {
         tx_estado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         tx_id.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 tx_idInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         tx_id.addActionListener(new java.awt.event.ActionListener() {
@@ -288,7 +290,18 @@ public class Cuentas_Gastos extends SourceJForm {
     }//GEN-LAST:event_tx_recibos_numero_reciboActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        
+            /* Create and display the form */
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    try {
+                        new BienvenidaJefe().setVisible(true);
+                        dispose();
+                    } catch (Exception ex) {
+                        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            });
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
